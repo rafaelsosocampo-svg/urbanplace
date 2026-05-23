@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UrbanPlace | Compra y vende fácil</title>
+  <title>UrbanPlace Beta | Marketplace urbano</title>
 
   <style>
     * {
@@ -55,6 +55,16 @@
       padding: 100px 20px;
     }
 
+    .badge {
+      background: rgba(56, 189, 248, 0.18);
+      color: #38bdf8;
+      padding: 8px 18px;
+      border-radius: 30px;
+      display: inline-block;
+      font-weight: bold;
+      margin-bottom: 18px;
+    }
+
     .hero h1 {
       font-size: 50px;
       margin-bottom: 12px;
@@ -63,6 +73,9 @@
     .hero p {
       font-size: 21px;
       margin-bottom: 30px;
+      max-width: 850px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .btn {
@@ -89,14 +102,22 @@
     }
 
     section {
-      padding: 60px 60px;
+      padding: 60px;
     }
 
     section h2 {
       text-align: center;
       color: #111827;
-      margin-bottom: 30px;
+      margin-bottom: 20px;
       font-size: 34px;
+    }
+
+    .subtitulo {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 30px;
+      color: #555;
+      line-height: 1.6;
     }
 
     .buscador {
@@ -149,6 +170,7 @@
       width: 100%;
       height: 210px;
       object-fit: cover;
+      opacity: 0.85;
     }
 
     .producto-info {
@@ -164,6 +186,15 @@
     .vendedor {
       color: #555;
       font-size: 14px;
+    }
+
+    .aviso {
+      background: #fff7ed;
+      color: #9a3412;
+      padding: 14px;
+      border-radius: 12px;
+      font-size: 14px;
+      margin-top: 12px;
     }
 
     .sobre {
@@ -209,6 +240,14 @@
 
     textarea {
       height: 100px;
+    }
+
+    .nota-formulario {
+      font-size: 14px;
+      color: #555;
+      line-height: 1.5;
+      margin-bottom: 10px;
+      text-align: center;
     }
 
     .whatsapp-flotante {
@@ -276,7 +315,7 @@
     <nav>
       <a href="#inicio">Inicio</a>
       <a href="#categorias">Categorías</a>
-      <a href="#productos">Productos</a>
+      <a href="#productos">Catálogo</a>
       <a href="#nosotros">Nosotros</a>
       <a href="#vender">Vender</a>
       <a href="#contacto">Contacto</a>
@@ -284,63 +323,76 @@
   </header>
 
   <section class="hero" id="inicio">
-    <h1>Compra, vende y descubre productos cerca de ti</h1>
-    <p>Un marketplace urbano para ropa, tecnología, accesorios, hogar y productos en general.</p>
-    <a href="#productos" class="btn">Ver productos</a>
-    <a href="#formulario" class="btn btn-dark">Publicar producto</a>
+    <div class="badge">🚀 UrbanPlace Beta</div>
+    <h1>Construyendo el marketplace urbano</h1>
+    <p>
+      Estamos recibiendo vendedores y productos para crear un catálogo real de ropa,
+      tecnología, accesorios, hogar y productos en general.
+    </p>
+    <a href="#vender" class="btn">Quiero vender</a>
+    <a href="#productos" class="btn btn-dark">Ver catálogo beta</a>
   </section>
 
   <div class="buscador">
-    <input type="text" placeholder="Buscar ropa, celulares, accesorios, zapatillas...">
+    <input type="text" placeholder="Buscar productos próximamente...">
     <button class="btn" onclick="buscar()">Buscar</button>
   </div>
 
   <section id="categorias">
-    <h2>Categorías</h2>
+    <h2>Categorías disponibles</h2>
+    <p class="subtitulo">
+      Estas son las categorías que UrbanPlace está preparando para publicar productos reales.
+    </p>
+
     <div class="grid">
       <div class="card"><h3>👕 Ropa</h3><p>Polos, casacas, pantalones y prendas urbanas.</p></div>
       <div class="card"><h3>📱 Tecnología</h3><p>Celulares, audífonos, cargadores y gadgets.</p></div>
       <div class="card"><h3>⌚ Accesorios</h3><p>Relojes, mochilas, lentes, pulseras y más.</p></div>
       <div class="card"><h3>🏠 Hogar</h3><p>Artículos útiles para casa y decoración.</p></div>
       <div class="card"><h3>🎮 Gaming</h3><p>Mandos, teclados, mouse, luces LED y setup.</p></div>
-      <div class="card"><h3>🔥 Ofertas</h3><p>Productos con precios especiales.</p></div>
+      <div class="card"><h3>🔥 Ofertas</h3><p>Promociones y productos con precios especiales.</p></div>
     </div>
   </section>
 
   <section id="productos">
-    <h2>Productos destacados</h2>
+    <h2>Catálogo beta en preparación</h2>
+    <p class="subtitulo">
+      Los siguientes productos son ejemplos referenciales de cómo se verá el catálogo.
+      Pronto se publicarán productos reales de vendedores registrados.
+    </p>
+
     <div class="grid">
 
       <div class="producto">
         <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80">
         <div class="producto-info">
-          <h3>Polo urbano</h3>
-          <p>Prenda cómoda para uso diario.</p>
-          <p class="vendedor">Vendedor: UrbanPlace</p>
-          <p class="precio">S/ 45.00</p>
-          <a class="btn" href="https://wa.me/51945430777?text=Hola%2C%20quiero%20información%20sobre%20el%20Polo%20urbano">Comprar</a>
+          <h3>Ejemplo: Polo urbano</h3>
+          <p>Modelo referencial para la categoría ropa.</p>
+          <p class="vendedor">Estado: producto de muestra</p>
+          <p class="precio">Precio por confirmar</p>
+          <div class="aviso">Este producto aún no está disponible para compra.</div>
         </div>
       </div>
 
       <div class="producto">
         <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80">
         <div class="producto-info">
-          <h3>Audífonos Bluetooth</h3>
-          <p>Sonido claro y diseño moderno.</p>
-          <p class="vendedor">Vendedor: UrbanPlace</p>
-          <p class="precio">S/ 65.00</p>
-          <a class="btn" href="https://wa.me/51945430777?text=Hola%2C%20quiero%20información%20sobre%20los%20Audífonos%20Bluetooth">Comprar</a>
+          <h3>Ejemplo: Audífonos Bluetooth</h3>
+          <p>Modelo referencial para tecnología.</p>
+          <p class="vendedor">Estado: producto de muestra</p>
+          <p class="precio">Precio por confirmar</p>
+          <div class="aviso">Este producto aún no está disponible para compra.</div>
         </div>
       </div>
 
       <div class="producto">
         <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80">
         <div class="producto-info">
-          <h3>Mochila casual</h3>
-          <p>Ideal para universidad, trabajo o viaje.</p>
-          <p class="vendedor">Vendedor: UrbanPlace</p>
-          <p class="precio">S/ 70.00</p>
-          <a class="btn" href="https://wa.me/51945430777?text=Hola%2C%20quiero%20información%20sobre%20la%20Mochila%20casual">Comprar</a>
+          <h3>Ejemplo: Mochila casual</h3>
+          <p>Modelo referencial para accesorios.</p>
+          <p class="vendedor">Estado: producto de muestra</p>
+          <p class="precio">Precio por confirmar</p>
+          <div class="aviso">Este producto aún no está disponible para compra.</div>
         </div>
       </div>
 
@@ -351,12 +403,16 @@
     <h2>Sobre nosotros</h2>
     <div class="sobre">
       <p>
-        <strong>UrbanPlace</strong> nace como una plataforma pensada para conectar compradores y vendedores de manera rápida, sencilla y confiable.
-        Nuestro objetivo es que las personas puedan publicar productos, encontrar buenas ofertas y coordinar compras directamente por WhatsApp.
+        <strong>UrbanPlace</strong> nace como una plataforma beta pensada para conectar compradores y vendedores
+        de manera rápida, sencilla y confiable.
       </p>
       <p>
-        Nos enfocamos en productos urbanos, ropa, tecnología, accesorios, artículos para el hogar y productos en general.
-        Queremos ser una alternativa práctica para quienes desean vender más y para quienes buscan comprar fácil.
+        Actualmente estamos registrando vendedores para formar un catálogo real. Nuestro objetivo es que las personas
+        puedan publicar productos, encontrar ofertas y coordinar compras directamente por WhatsApp.
+      </p>
+      <p>
+        Esta primera versión funciona como una plataforma de recepción de productos. Cada publicación será revisada
+        antes de ser agregada al catálogo.
       </p>
     </div>
   </section>
@@ -364,30 +420,37 @@
   <section>
     <h2>¿Cómo funciona?</h2>
     <div class="grid">
-      <div class="paso"><h3>1. Busca</h3><p>Encuentra productos por categoría o nombre.</p></div>
-      <div class="paso"><h3>2. Contacta</h3><p>Habla directamente por WhatsApp con UrbanPlace.</p></div>
-      <div class="paso"><h3>3. Coordina</h3><p>Consulta precio, entrega y disponibilidad.</p></div>
+      <div class="paso"><h3>1. Registra tu producto</h3><p>Completa el formulario con los datos del producto.</p></div>
+      <div class="paso"><h3>2. Revisión</h3><p>UrbanPlace revisa la información enviada por el vendedor.</p></div>
+      <div class="paso"><h3>3. Publicación</h3><p>Los productos aprobados podrán aparecer en el catálogo.</p></div>
     </div>
   </section>
 
   <section id="vender">
     <div class="vender-box">
-      <h2>Vende con nosotros</h2>
-      <p>Publica ropa, accesorios, tecnología o productos en general y llega a más compradores.</p>
-      <a href="#formulario" class="btn">Quiero vender</a>
+      <h2>Vende con UrbanPlace</h2>
+      <p>
+        Estamos recibiendo vendedores para construir nuestro primer catálogo real.
+        Envía tu producto y nos contactaremos contigo.
+      </p>
+      <a href="#formulario" class="btn">Registrar producto</a>
     </div>
   </section>
 
   <section id="formulario">
-    <h2>Publicar producto</h2>
+    <h2>Registrar producto</h2>
 
     <form class="formulario" action="https://formsubmit.co/rafaelsosocampo@gmail.com" method="POST">
+
+      <p class="nota-formulario">
+        Completa la información del producto. Tu publicación será enviada a UrbanPlace para revisión.
+      </p>
 
       <input type="text" name="Nombre del vendedor" placeholder="Nombre del vendedor" required>
 
       <input type="text" name="Nombre del producto" placeholder="Nombre del producto" required>
 
-      <input type="text" name="Precio del producto" placeholder="Precio del producto" required>
+      <input type="text" name="Precio sugerido" placeholder="Precio sugerido del producto" required>
 
       <select name="Categoría" required>
         <option value="">Selecciona una categoría</option>
@@ -403,11 +466,11 @@
 
       <textarea name="Descripción del producto" placeholder="Describe tu producto" required></textarea>
 
-      <input type="hidden" name="_subject" value="Nueva publicación en UrbanPlace">
+      <input type="hidden" name="_subject" value="Nueva solicitud de publicación en UrbanPlace">
       <input type="hidden" name="_captcha" value="false">
 
       <button class="btn" type="submit">
-        Enviar publicación
+        Enviar solicitud
       </button>
 
     </form>
@@ -416,27 +479,27 @@
   <section>
     <h2>Por qué elegir UrbanPlace</h2>
     <div class="grid">
-      <div class="card"><h3>✅ Fácil de usar</h3><p>Diseñado para comprar y vender sin complicaciones.</p></div>
-      <div class="card"><h3>📲 Contacto rápido</h3><p>Atención directa mediante WhatsApp.</p></div>
-      <div class="card"><h3>🛍️ Variedad</h3><p>Ropa, tecnología, accesorios, hogar y más.</p></div>
-      <div class="card"><h3>📍 En Arequipa</h3><p>Ideal para ventas locales y entregas coordinadas.</p></div>
+      <div class="card"><h3>✅ Transparente</h3><p>Estamos en fase beta y revisamos las publicaciones antes de mostrarlas.</p></div>
+      <div class="card"><h3>📲 Contacto rápido</h3><p>La comunicación se realiza por WhatsApp para facilitar la coordinación.</p></div>
+      <div class="card"><h3>🛍️ Variedad</h3><p>Recibimos ropa, tecnología, accesorios, hogar, gaming y más.</p></div>
+      <div class="card"><h3>📍 En Arequipa</h3><p>Ideal para iniciar ventas locales y coordinar entregas de forma práctica.</p></div>
     </div>
   </section>
 
   <section>
-    <h2>Opiniones</h2>
+    <h2>Estado del proyecto</h2>
     <div class="grid">
-      <div class="testimonio"><p>“Una forma rápida y práctica de encontrar productos.”</p><strong>- Cliente UrbanPlace</strong></div>
-      <div class="testimonio"><p>“Me gusta porque el contacto es directo por WhatsApp.”</p><strong>- Comprador local</strong></div>
-      <div class="testimonio"><p>“Ideal para empezar a vender productos de manera sencilla.”</p><strong>- Vendedor</strong></div>
+      <div class="testimonio"><p>“UrbanPlace se encuentra en etapa beta.”</p><strong>Recibiendo vendedores</strong></div>
+      <div class="testimonio"><p>“El catálogo real se publicará progresivamente.”</p><strong>Productos en revisión</strong></div>
+      <div class="testimonio"><p>“El formulario ya permite enviar solicitudes.”</p><strong>Registro activo</strong></div>
     </div>
   </section>
 
   <footer id="contacto">
-    <p><strong>UrbanPlace</strong></p>
+    <p><strong>UrbanPlace Beta</strong></p>
     <p>Arequipa, Perú</p>
     <p>WhatsApp: 945 430 777 | Instagram: @rafael_ocampo_ez</p>
-    <p>Compra y vende de todo en un solo lugar.</p>
+    <p>Marketplace urbano en desarrollo.</p>
     <p>
       <a href="https://wa.me/51945430777" target="_blank">Contactar por WhatsApp</a>
     </p>
@@ -448,7 +511,7 @@
 
   <script>
     function buscar() {
-      alert("Buscador activado. Más adelante podremos hacer que filtre productos reales.");
+      alert("UrbanPlace está en fase beta. El buscador estará disponible cuando tengamos productos reales publicados.");
     }
   </script>
 
