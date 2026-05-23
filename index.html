@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UrbanPlace | Compra y vende fácil</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #222;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 18px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+    }
+
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: #38bdf8;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 18px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #111827, #1e3a8a);
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 21px;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: #38bdf8;
+      color: #111827;
+      padding: 14px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      border: none;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .btn:hover {
+      background: #0ea5e9;
+      transform: scale(1.04);
+    }
+
+    .btn-dark {
+      background: white;
+      color: #111827;
+    }
+
+    section {
+      padding: 60px 60px;
+    }
+
+    section h2 {
+      text-align: center;
+      color: #111827;
+      margin-bottom: 30px;
+      font-size: 34px;
+    }
+
+    .buscador {
+      max-width: 750px;
+      margin: -35px auto 30px;
+      background: white;
+      padding: 20px;
+      border-radius: 18px;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+      display: flex;
+      gap: 10px;
+    }
+
+    .buscador input {
+      flex: 1;
+      padding: 14px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .card, .producto, .paso, .testimonio {
+      background: white;
+      border-radius: 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      overflow: hidden;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .card:hover, .producto:hover, .paso:hover, .testimonio:hover {
+      transform: translateY(-6px);
+    }
+
+    .card, .paso, .testimonio {
+      padding: 25px;
+    }
+
+    .card h3, .paso h3 {
+      color: #1e3a8a;
+    }
+
+    .producto img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+    }
+
+    .producto-info {
+      padding: 20px;
+    }
+
+    .precio {
+      color: #16a34a;
+      font-size: 21px;
+      font-weight: bold;
+    }
+
+    .vendedor {
+      color: #555;
+      font-size: 14px;
+    }
+
+    .sobre {
+      background: white;
+      border-radius: 24px;
+      padding: 45px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      max-width: 950px;
+      margin: auto;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    .vender-box {
+      background: #111827;
+      color: white;
+      text-align: center;
+      border-radius: 24px;
+      padding: 55px 20px;
+    }
+
+    .vender-box h2 {
+      color: white;
+    }
+
+    .formulario {
+      max-width: 650px;
+      margin: auto;
+      background: white;
+      padding: 32px;
+      border-radius: 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 13px;
+      margin: 9px 0;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    textarea {
+      height: 100px;
+    }
+
+    .whatsapp-flotante {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      background: #22c55e;
+      color: white;
+      padding: 15px 18px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+      z-index: 200;
+    }
+
+    footer {
+      background: #111827;
+      color: white;
+      text-align: center;
+      padding: 35px;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+        padding: 18px;
+      }
+
+      nav {
+        margin-top: 12px;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px;
+      }
+
+      section {
+        padding: 40px 20px;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .buscador {
+        flex-direction: column;
+        margin: -25px 20px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="logo">UrbanPlace 🛒</div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#categorias">Categorías</a>
+      <a href="#productos">Productos</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#vender">Vender</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="inicio">
+    <h1>Compra, vende y descubre productos cerca de ti</h1>
+    <p>Un marketplace urbano para ropa, tecnología, accesorios, hogar y productos en general.</p>
+    <a href="#productos" class="btn">Ver productos</a>
+    <a href="#formulario" class="btn btn-dark">Publicar producto</a>
+  </section>
+
+  <div class="buscador">
+    <input type="text" placeholder="Buscar ropa, celulares, accesorios, zapatillas...">
+    <button class="btn" onclick="buscar()">Buscar</button>
+  </div>
+
+  <section id="categorias">
+    <h2>Categorías</h2>
+    <div class="grid">
+      <div class="card"><h3>👕 Ropa</h3><p>Polos, casacas, pantalones y prendas urbanas.</p></div>
+      <div class="card"><h3>📱 Tecnología</h3><p>Celulares, audífonos, cargadores y gadgets.</p></div>
+      <div class="card"><h3>⌚ Accesorios</h3><p>Relojes, mochilas, lentes, pulseras y más.</p></div>
+      <div class="card"><h3>🏠 Hogar</h3><p>Artículos útiles para casa y decoración.</p></div>
+      <div class="card"><h3>🎮 Gaming</h3><p>Mandos, teclados, mouse, luces LED y setup.</p></div>
+      <div class="card"><h3>🔥 Ofertas</h3><p>Productos con precios especiales.</p></div>
+    </div>
+  </section>
+
+  <section id="productos">
+    <h2>Productos destacados</h2>
+    <div class="grid">
+
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80">
+        <div class="producto-info">
+          <h3>Polo urbano</h3>
+          <p>Prenda cómoda para uso diario.</p>
+          <p class="vendedor">Vendedor: UrbanPlace</p>
+          <p class="precio">S/ 45.00</p>
+          <a class="btn" href="https://wa.me/51945430777?text=Hola%2C%20quiero%20información%20sobre%20el%20Polo%20urbano">Comprar</a>
+        </div>
+      </div>
+
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80">
+        <div class="producto-info">
+          <h3>Audífonos Bluetooth</h3>
+          <p>Sonido claro y diseño moderno.</p>
+          <p class="vendedor">Vendedor: UrbanPlace</p>
+          <p class="precio">S/ 65.00</p>
+          <a class="btn" href="https://wa.me/51945430777?text=Hola%2C%20quiero%20información%20sobre%20los%20Audífonos%20Bluetooth">Comprar</a>
+        </div>
+      </div>
+
+      <div class="producto">
+        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80">
+        <div class="producto-info">
+          <h3>Mochila casual</h3>
+          <p>Ideal para universidad, trabajo o viaje.</p>
+          <p class="vendedor">Vendedor: UrbanPlace</p>
+          <p class="precio">S/ 70.00</p>
+          <a class="btn" href="https://wa.me/51945430777?text=Hola%2C%20quiero%20información%20sobre%20la%20Mochila%20casual">Comprar</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="nosotros">
+    <h2>Sobre nosotros</h2>
+    <div class="sobre">
+      <p>
+        <strong>UrbanPlace</strong> nace como una plataforma pensada para conectar compradores y vendedores de manera rápida, sencilla y confiable.
+        Nuestro objetivo es que las personas puedan publicar productos, encontrar buenas ofertas y coordinar compras directamente por WhatsApp.
+      </p>
+      <p>
+        Nos enfocamos en productos urbanos, ropa, tecnología, accesorios, artículos para el hogar y productos en general.
+        Queremos ser una alternativa práctica para quienes desean vender más y para quienes buscan comprar fácil.
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>¿Cómo funciona?</h2>
+    <div class="grid">
+      <div class="paso"><h3>1. Busca</h3><p>Encuentra productos por categoría o nombre.</p></div>
+      <div class="paso"><h3>2. Contacta</h3><p>Habla directamente por WhatsApp con UrbanPlace.</p></div>
+      <div class="paso"><h3>3. Coordina</h3><p>Consulta precio, entrega y disponibilidad.</p></div>
+    </div>
+  </section>
+
+  <section id="vender">
+    <div class="vender-box">
+      <h2>Vende con nosotros</h2>
+      <p>Publica ropa, accesorios, tecnología o productos en general y llega a más compradores.</p>
+      <a href="#formulario" class="btn">Quiero vender</a>
+    </div>
+  </section>
+
+  <section id="formulario">
+    <h2>Publicar producto</h2>
+
+    <form class="formulario" action="https://formsubmit.co/rafaelsosocampo@gmail.com" method="POST">
+
+      <input type="text" name="Nombre del vendedor" placeholder="Nombre del vendedor" required>
+
+      <input type="text" name="Nombre del producto" placeholder="Nombre del producto" required>
+
+      <input type="text" name="Precio del producto" placeholder="Precio del producto" required>
+
+      <select name="Categoría" required>
+        <option value="">Selecciona una categoría</option>
+        <option>Ropa</option>
+        <option>Tecnología</option>
+        <option>Accesorios</option>
+        <option>Hogar</option>
+        <option>Gaming</option>
+        <option>Otros</option>
+      </select>
+
+      <input type="text" name="WhatsApp del vendedor" placeholder="Tu número de WhatsApp" required>
+
+      <textarea name="Descripción del producto" placeholder="Describe tu producto" required></textarea>
+
+      <input type="hidden" name="_subject" value="Nueva publicación en UrbanPlace">
+      <input type="hidden" name="_captcha" value="false">
+
+      <button class="btn" type="submit">
+        Enviar publicación
+      </button>
+
+    </form>
+  </section>
+
+  <section>
+    <h2>Por qué elegir UrbanPlace</h2>
+    <div class="grid">
+      <div class="card"><h3>✅ Fácil de usar</h3><p>Diseñado para comprar y vender sin complicaciones.</p></div>
+      <div class="card"><h3>📲 Contacto rápido</h3><p>Atención directa mediante WhatsApp.</p></div>
+      <div class="card"><h3>🛍️ Variedad</h3><p>Ropa, tecnología, accesorios, hogar y más.</p></div>
+      <div class="card"><h3>📍 En Arequipa</h3><p>Ideal para ventas locales y entregas coordinadas.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Opiniones</h2>
+    <div class="grid">
+      <div class="testimonio"><p>“Una forma rápida y práctica de encontrar productos.”</p><strong>- Cliente UrbanPlace</strong></div>
+      <div class="testimonio"><p>“Me gusta porque el contacto es directo por WhatsApp.”</p><strong>- Comprador local</strong></div>
+      <div class="testimonio"><p>“Ideal para empezar a vender productos de manera sencilla.”</p><strong>- Vendedor</strong></div>
+    </div>
+  </section>
+
+  <footer id="contacto">
+    <p><strong>UrbanPlace</strong></p>
+    <p>Arequipa, Perú</p>
+    <p>WhatsApp: 945 430 777 | Instagram: @rafael_ocampo_ez</p>
+    <p>Compra y vende de todo en un solo lugar.</p>
+    <p>
+      <a href="https://wa.me/51945430777" target="_blank">Contactar por WhatsApp</a>
+    </p>
+  </footer>
+
+  <a class="whatsapp-flotante" href="https://wa.me/51945430777" target="_blank">
+    WhatsApp
+  </a>
+
+  <script>
+    function buscar() {
+      alert("Buscador activado. Más adelante podremos hacer que filtre productos reales.");
+    }
+  </script>
+
+</body>
+</html>
