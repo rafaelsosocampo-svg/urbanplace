@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UrbanPlace Beta | Marketplace urbano</title>
+  <title>Rafa Life | Planner Personal</title>
 
   <style>
     * {
@@ -14,25 +14,24 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      color: #222;
+      background: #0f172a;
+      color: #e5e7eb;
     }
 
     header {
-      background: #111827;
-      color: white;
-      padding: 18px 60px;
+      background: #020617;
+      padding: 18px 45px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.4);
     }
 
     .logo {
-      font-size: 30px;
+      font-size: 27px;
       font-weight: bold;
       color: #38bdf8;
     }
@@ -40,7 +39,7 @@
     nav a {
       color: white;
       text-decoration: none;
-      margin-left: 18px;
+      margin-left: 16px;
       font-weight: bold;
     }
 
@@ -49,10 +48,19 @@
     }
 
     .hero {
-      background: linear-gradient(135deg, #111827, #1e3a8a);
-      color: white;
+      padding: 70px 20px;
       text-align: center;
-      padding: 100px 20px;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+    }
+
+    .badge {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      padding: 9px 18px;
+      border-radius: 30px;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 15px;
     }
 
     .badge {
@@ -66,29 +74,74 @@
     }
 
     .hero h1 {
-      font-size: 50px;
-      margin-bottom: 12px;
+      font-size: 48px;
+      margin: 10px 0;
     }
 
     .hero p {
-      font-size: 21px;
+      color: #cbd5e1;
+      font-size: 19px;
+      max-width: 800px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    section {
+      padding: 50px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .subtitulo {
+      text-align: center;
+      color: #94a3b8;
       margin-bottom: 30px;
       max-width: 850px;
       margin-left: auto;
       margin-right: auto;
     }
 
+    .panel {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 22px;
+      padding: 25px;
+      max-width: 1100px;
+      margin: auto;
+      box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+    }
+
+    .controles-calendario {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 25px;
+    }
+
+    .mes-titulo {
+      font-size: 28px;
+      color: #38bdf8;
+      font-weight: bold;
+      min-width: 250px;
+      text-align: center;
+    }
+
     .btn {
       background: #38bdf8;
-      color: #111827;
-      padding: 14px 24px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      display: inline-block;
+      color: #020617;
       border: none;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-weight: bold;
       cursor: pointer;
       margin: 5px;
+      transition: 0.2s;
     }
 
     .btn:hover {
@@ -96,188 +149,181 @@
       transform: scale(1.04);
     }
 
-    .btn-dark {
-      background: white;
-      color: #111827;
+    .btn-rojo {
+      background: #ef4444;
+      color: white;
     }
 
-    section {
-      padding: 60px;
+    .btn-rojo:hover {
+      background: #dc2626;
     }
 
-    section h2 {
-      text-align: center;
-      color: #111827;
-      margin-bottom: 20px;
-      font-size: 34px;
-    }
-
-    .subtitulo {
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 30px;
-      color: #555;
-      line-height: 1.6;
-    }
-
-    .buscador {
-      max-width: 750px;
-      margin: -35px auto 30px;
-      background: white;
-      padding: 20px;
-      border-radius: 18px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.12);
-      display: flex;
-      gap: 10px;
-    }
-
-    .buscador input {
-      flex: 1;
-      padding: 14px;
-      border: 1px solid #ccc;
-      border-radius: 12px;
-      font-size: 16px;
-    }
-
-    .grid {
+    .dias-semana {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-    }
-
-    .card, .producto, .paso, .testimonio {
-      background: white;
-      border-radius: 18px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      overflow: hidden;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      margin-bottom: 8px;
       text-align: center;
-      transition: 0.3s;
-    }
-
-    .card:hover, .producto:hover, .paso:hover, .testimonio:hover {
-      transform: translateY(-6px);
-    }
-
-    .card, .paso, .testimonio {
-      padding: 25px;
-    }
-
-    .card h3, .paso h3 {
-      color: #1e3a8a;
-    }
-
-    .producto img {
-      width: 100%;
-      height: 210px;
-      object-fit: cover;
-      opacity: 0.85;
-    }
-
-    .producto-info {
-      padding: 20px;
-    }
-
-    .precio {
-      color: #16a34a;
-      font-size: 21px;
+      color: #38bdf8;
       font-weight: bold;
     }
 
-    .vendedor {
-      color: #555;
-      font-size: 14px;
+    .calendario {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
     }
 
-    .aviso {
-      background: #fff7ed;
-      color: #9a3412;
-      padding: 14px;
-      border-radius: 12px;
-      font-size: 14px;
-      margin-top: 12px;
+    .dia {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 15px;
+      min-height: 105px;
+      padding: 10px;
+      cursor: pointer;
+      transition: 0.2s;
+      position: relative;
     }
 
-    .sobre {
-      background: white;
-      border-radius: 24px;
-      padding: 45px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      max-width: 950px;
-      margin: auto;
-      text-align: center;
-      line-height: 1.7;
+    .dia:hover {
+      transform: translateY(-4px);
+      border-color: #38bdf8;
     }
 
-    .vender-box {
-      background: #111827;
+    .dia.vacio {
+      opacity: 0.2;
+      cursor: default;
+    }
+
+    .dia.numero {
+      font-weight: bold;
+    }
+
+    .dia .numero-dia {
       color: white;
-      text-align: center;
-      border-radius: 24px;
-      padding: 55px 20px;
+      font-size: 18px;
+      font-weight: bold;
     }
 
-    .vender-box h2 {
-      color: white;
+    .dia .mini-texto {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.3;
     }
 
-    .formulario {
-      max-width: 650px;
-      margin: auto;
-      background: white;
-      padding: 32px;
-      border-radius: 18px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+    .dia.guardado {
+      border-color: #22c55e;
+      background: #10231a;
+    }
+
+    .dia.hoy {
+      border-color: #facc15;
+      box-shadow: 0 0 0 2px rgba(250, 204, 21, 0.35);
+    }
+
+    .editor {
+      margin-top: 30px;
+      display: none;
+    }
+
+    .editor h3 {
+      color: #38bdf8;
+      font-size: 25px;
+      margin-top: 0;
+    }
+
+    label {
+      display: block;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      color: #cbd5e1;
+      font-weight: bold;
+      font-size: 14px;
     }
 
     input, textarea, select {
       width: 100%;
-      padding: 13px;
-      margin: 9px 0;
-      border-radius: 10px;
-      border: 1px solid #ccc;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #475569;
+      background: #0f172a;
+      color: white;
       font-size: 15px;
+      outline: none;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #38bdf8;
     }
 
     textarea {
-      height: 100px;
+      min-height: 85px;
+      resize: vertical;
     }
 
-    .nota-formulario {
-      font-size: 14px;
-      color: #555;
-      line-height: 1.5;
-      margin-bottom: 10px;
+    .preview {
+      width: 100%;
+      max-height: 280px;
+      object-fit: cover;
+      border-radius: 18px;
+      margin-top: 12px;
+      display: none;
+      border: 1px solid #475569;
+    }
+
+    .grid-estadisticas {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+
+    .stat {
+      background: #0f172a;
+      border: 1px solid #334155;
+      border-radius: 18px;
+      padding: 22px;
       text-align: center;
     }
 
-    .whatsapp-flotante {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      background: #22c55e;
-      color: white;
-      padding: 15px 18px;
-      border-radius: 50px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-      z-index: 200;
+    .stat h3 {
+      color: #38bdf8;
+      font-size: 34px;
+      margin: 0;
+    }
+
+    .stat p {
+      color: #cbd5e1;
+      margin-bottom: 0;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 12px;
+    }
+
+    .check-item {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      background: #0f172a;
+      padding: 12px;
+      border-radius: 12px;
+      border: 1px solid #334155;
+    }
+
+    .check-item input {
+      width: auto;
     }
 
     footer {
-      background: #111827;
-      color: white;
+      background: #020617;
       text-align: center;
-      padding: 35px;
+      padding: 30px;
+      color: #94a3b8;
     }
 
-    footer a {
-      color: #38bdf8;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    @media (max-width: 700px) {
+    @media (max-width: 760px) {
       header {
         flex-direction: column;
         padding: 18px;
@@ -285,24 +331,33 @@
 
       nav {
         margin-top: 12px;
+        text-align: center;
       }
 
       nav a {
         display: inline-block;
-        margin: 8px;
+        margin: 7px;
       }
 
       section {
-        padding: 40px 20px;
+        padding: 35px 15px;
       }
 
       .hero h1 {
-        font-size: 36px;
+        font-size: 35px;
       }
 
-      .buscador {
-        flex-direction: column;
-        margin: -25px 20px 20px;
+      .calendario, .dias-semana {
+        gap: 5px;
+      }
+
+      .dia {
+        min-height: 80px;
+        padding: 7px;
+      }
+
+      .dia .mini-texto {
+        display: none;
       }
     }
   </style>
@@ -310,210 +365,419 @@
 
 <body>
 
-  <header>
-    <div class="logo">UrbanPlace 🛒</div>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#categorias">Categorías</a>
-      <a href="#productos">Catálogo</a>
-      <a href="#nosotros">Nosotros</a>
-      <a href="#vender">Vender</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </header>
+<header>
+  <div class="logo">Rafa Life 📅</div>
+  <nav>
+    <a href="#calendario">Calendario</a>
+    <a href="#estadisticas">Estadísticas</a>
+    <a href="#tareas">Tareas</a>
+    <a href="#notas">Notas</a>
+  </nav>
+</header>
 
-  <section class="hero" id="inicio">
-    <div class="badge">🚀 UrbanPlace Beta</div>
-    <h1>Construyendo el marketplace urbano</h1>
-    <p>
-      Estamos recibiendo vendedores y productos para crear un catálogo real de ropa,
-      tecnología, accesorios, hogar y productos en general.
-    </p>
-    <a href="#vender" class="btn">Quiero vender</a>
-    <a href="#productos" class="btn btn-dark">Ver catálogo beta</a>
-  </section>
+<section class="hero">
+  <div class="badge">Planner personal</div>
+  <h1>Tu calendario, outfits, gym y notas</h1>
+  <p>
+    Organiza cada día por fecha real. Puedes guardar títulos, outfits,
+    fotos, entrenamiento, tareas y notas. Todo se guarda automáticamente
+    en tu navegador.
+  </p>
+</section>
 
-  <div class="buscador">
-    <input type="text" placeholder="Buscar productos próximamente...">
-    <button class="btn" onclick="buscar()">Buscar</button>
-  </div>
+<section id="calendario">
+  <h2>Calendario mensual</h2>
+  <p class="subtitulo">Cada día se guarda por fecha, mes y año.</p>
 
-  <section id="categorias">
-    <h2>Categorías disponibles</h2>
-    <p class="subtitulo">
-      Estas son las categorías que UrbanPlace está preparando para publicar productos reales.
-    </p>
-
-    <div class="grid">
-      <div class="card"><h3>👕 Ropa</h3><p>Polos, casacas, pantalones y prendas urbanas.</p></div>
-      <div class="card"><h3>📱 Tecnología</h3><p>Celulares, audífonos, cargadores y gadgets.</p></div>
-      <div class="card"><h3>⌚ Accesorios</h3><p>Relojes, mochilas, lentes, pulseras y más.</p></div>
-      <div class="card"><h3>🏠 Hogar</h3><p>Artículos útiles para casa y decoración.</p></div>
-      <div class="card"><h3>🎮 Gaming</h3><p>Mandos, teclados, mouse, luces LED y setup.</p></div>
-      <div class="card"><h3>🔥 Ofertas</h3><p>Promociones y productos con precios especiales.</p></div>
+  <div class="panel">
+    <div class="controles-calendario">
+      <button class="btn" onclick="cambiarMes(-1)">⬅ Mes anterior</button>
+      <div class="mes-titulo" id="mesTitulo"></div>
+      <button class="btn" onclick="cambiarMes(1)">Mes siguiente ➡</button>
     </div>
-  </section>
 
-  <section id="productos">
-    <h2>Catálogo beta en preparación</h2>
-    <p class="subtitulo">
-      Los siguientes productos son ejemplos referenciales de cómo se verá el catálogo.
-      Pronto se publicarán productos reales de vendedores registrados.
-    </p>
-
-    <div class="grid">
-
-      <div class="producto">
-        <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=800&q=80">
-        <div class="producto-info">
-          <h3>Ejemplo: Polo urbano</h3>
-          <p>Modelo referencial para la categoría ropa.</p>
-          <p class="vendedor">Estado: producto de muestra</p>
-          <p class="precio">Precio por confirmar</p>
-          <div class="aviso">Este producto aún no está disponible para compra.</div>
-        </div>
-      </div>
-
-      <div class="producto">
-        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80">
-        <div class="producto-info">
-          <h3>Ejemplo: Audífonos Bluetooth</h3>
-          <p>Modelo referencial para tecnología.</p>
-          <p class="vendedor">Estado: producto de muestra</p>
-          <p class="precio">Precio por confirmar</p>
-          <div class="aviso">Este producto aún no está disponible para compra.</div>
-        </div>
-      </div>
-
-      <div class="producto">
-        <img src="https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=800&q=80">
-        <div class="producto-info">
-          <h3>Ejemplo: Mochila casual</h3>
-          <p>Modelo referencial para accesorios.</p>
-          <p class="vendedor">Estado: producto de muestra</p>
-          <p class="precio">Precio por confirmar</p>
-          <div class="aviso">Este producto aún no está disponible para compra.</div>
-        </div>
-      </div>
-
+    <div class="dias-semana">
+      <div>Lun</div>
+      <div>Mar</div>
+      <div>Mié</div>
+      <div>Jue</div>
+      <div>Vie</div>
+      <div>Sáb</div>
+      <div>Dom</div>
     </div>
-  </section>
 
-  <section id="nosotros">
-    <h2>Sobre nosotros</h2>
-    <div class="sobre">
-      <p>
-        <strong>UrbanPlace</strong> nace como una plataforma beta pensada para conectar compradores y vendedores
-        de manera rápida, sencilla y confiable.
-      </p>
-      <p>
-        Actualmente estamos registrando vendedores para formar un catálogo real. Nuestro objetivo es que las personas
-        puedan publicar productos, encontrar ofertas y coordinar compras directamente por WhatsApp.
-      </p>
-      <p>
-        Esta primera versión funciona como una plataforma de recepción de productos. Cada publicación será revisada
-        antes de ser agregada al catálogo.
-      </p>
-    </div>
-  </section>
+    <div class="calendario" id="calendarioGrid"></div>
 
-  <section>
-    <h2>¿Cómo funciona?</h2>
-    <div class="grid">
-      <div class="paso"><h3>1. Registra tu producto</h3><p>Completa el formulario con los datos del producto.</p></div>
-      <div class="paso"><h3>2. Revisión</h3><p>UrbanPlace revisa la información enviada por el vendedor.</p></div>
-      <div class="paso"><h3>3. Publicación</h3><p>Los productos aprobados podrán aparecer en el catálogo.</p></div>
-    </div>
-  </section>
+    <div class="editor" id="editor">
+      <h3 id="fechaSeleccionadaTexto">Día seleccionado</h3>
 
-  <section id="vender">
-    <div class="vender-box">
-      <h2>Vende con UrbanPlace</h2>
-      <p>
-        Estamos recibiendo vendedores para construir nuestro primer catálogo real.
-        Envía tu producto y nos contactaremos contigo.
-      </p>
-      <a href="#formulario" class="btn">Registrar producto</a>
-    </div>
-  </section>
+      <label>Título del día</label>
+      <input type="text" id="tituloDia" placeholder="Ejemplo: Universidad + gym">
 
-  <section id="formulario">
-    <h2>Registrar producto</h2>
+      <label>Outfit del día</label>
+      <textarea id="outfitDia" placeholder="Ejemplo: polo negro, jean azul, zapatillas blancas..."></textarea>
 
-    <form class="formulario" action="https://formsubmit.co/rafaelsosocampo@gmail.com" method="POST">
+      <label>Foto del outfit</label>
+      <input type="file" accept="image/*" id="fotoDia" onchange="cargarImagen(event)">
+      <img id="previewImagen" class="preview">
 
-      <p class="nota-formulario">
-        Completa la información del producto. Tu publicación será enviada a UrbanPlace para revisión.
-      </p>
-
-      <input type="text" name="Nombre del vendedor" placeholder="Nombre del vendedor" required>
-
-      <input type="text" name="Nombre del producto" placeholder="Nombre del producto" required>
-
-      <input type="text" name="Precio sugerido" placeholder="Precio sugerido del producto" required>
-
-      <select name="Categoría" required>
-        <option value="">Selecciona una categoría</option>
-        <option>Ropa</option>
-        <option>Tecnología</option>
-        <option>Accesorios</option>
-        <option>Hogar</option>
-        <option>Gaming</option>
-        <option>Otros</option>
+      <label>Gym del día</label>
+      <select id="gymDia">
+        <option value="">Sin gym</option>
+        <option>Pecho</option>
+        <option>Espalda</option>
+        <option>Pierna</option>
+        <option>Hombro</option>
+        <option>Brazos</option>
+        <option>Cardio</option>
+        <option>Full body</option>
+        <option>Descanso</option>
       </select>
 
-      <input type="text" name="WhatsApp del vendedor" placeholder="Tu número de WhatsApp" required>
+      <label>Tareas del día</label>
+      <textarea id="tareasDia" placeholder="Ejemplo:
+- Estudiar
+- Ir al gym
+- Hacer trabajo
+- Comprar algo"></textarea>
 
-      <textarea name="Descripción del producto" placeholder="Describe tu producto" required></textarea>
+      <label>Notas del día</label>
+      <textarea id="notasDia" placeholder="Escribe aquí lo más importante de este día..."></textarea>
 
-      <input type="hidden" name="_subject" value="Nueva solicitud de publicación en UrbanPlace">
-      <input type="hidden" name="_captcha" value="false">
-
-      <button class="btn" type="submit">
-        Enviar solicitud
-      </button>
-
-    </form>
-  </section>
-
-  <section>
-    <h2>Por qué elegir UrbanPlace</h2>
-    <div class="grid">
-      <div class="card"><h3>✅ Transparente</h3><p>Estamos en fase beta y revisamos las publicaciones antes de mostrarlas.</p></div>
-      <div class="card"><h3>📲 Contacto rápido</h3><p>La comunicación se realiza por WhatsApp para facilitar la coordinación.</p></div>
-      <div class="card"><h3>🛍️ Variedad</h3><p>Recibimos ropa, tecnología, accesorios, hogar, gaming y más.</p></div>
-      <div class="card"><h3>📍 En Arequipa</h3><p>Ideal para iniciar ventas locales y coordinar entregas de forma práctica.</p></div>
+      <div style="text-align:center; margin-top:20px;">
+        <button class="btn" onclick="guardarDia()">Guardar día</button>
+        <button class="btn btn-rojo" onclick="borrarDia()">Borrar este día</button>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <h2>Estado del proyecto</h2>
-    <div class="grid">
-      <div class="testimonio"><p>“UrbanPlace se encuentra en etapa beta.”</p><strong>Recibiendo vendedores</strong></div>
-      <div class="testimonio"><p>“El catálogo real se publicará progresivamente.”</p><strong>Productos en revisión</strong></div>
-      <div class="testimonio"><p>“El formulario ya permite enviar solicitudes.”</p><strong>Registro activo</strong></div>
+<section id="estadisticas">
+  <h2>Estadísticas del mes</h2>
+  <p class="subtitulo">Resumen automático según lo que guardes.</p>
+
+  <div class="panel">
+    <div class="grid-estadisticas">
+      <div class="stat">
+        <h3 id="statDias">0</h3>
+        <p>Días guardados</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="statGym">0</h3>
+        <p>Días con gym</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="statOutfits">0</h3>
+        <p>Outfits registrados</p>
+      </div>
+
+      <div class="stat">
+        <h3 id="statFotos">0</h3>
+        <p>Fotos guardadas</p>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer id="contacto">
-    <p><strong>UrbanPlace Beta</strong></p>
-    <p>Arequipa, Perú</p>
-    <p>WhatsApp: 945 430 777 | Instagram: @rafael_ocampo_ez</p>
-    <p>Marketplace urbano en desarrollo.</p>
-    <p>
-      <a href="https://wa.me/51945430777" target="_blank">Contactar por WhatsApp</a>
-    </p>
-  </footer>
+<section id="tareas">
+  <h2>Tareas generales</h2>
+  <p class="subtitulo">Pendientes que no pertenecen a un solo día.</p>
 
-  <a class="whatsapp-flotante" href="https://wa.me/51945430777" target="_blank">
-    WhatsApp
-  </a>
+  <div class="panel">
+    <textarea id="tareasGenerales" placeholder="Ejemplo:
+- Estudiar Estadística
+- Revisar Finanzas
+- Ordenar cuarto
+- Preparar ropa para la semana"></textarea>
+  </div>
+</section>
 
-  <script>
-    function buscar() {
-      alert("UrbanPlace está en fase beta. El buscador estará disponible cuando tengamos productos reales publicados.");
+<section id="notas">
+  <h2>Notas generales</h2>
+  <p class="subtitulo">Ideas, recordatorios o cosas importantes.</p>
+
+  <div class="panel">
+    <textarea id="notasGenerales" placeholder="Escribe aquí tus notas generales..."></textarea>
+  </div>
+
+  <div style="text-align:center; margin-top:25px;">
+    <button class="btn btn-rojo" onclick="borrarTodo()">Borrar todo el planner</button>
+  </div>
+</section>
+
+<footer>
+  <p><strong>Rafa Life</strong></p>
+  <p>Calendario personal con guardado automático.</p>
+</footer>
+
+<script>
+  const meses = [
+    "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
+
+  let fechaActual = new Date();
+  let mesActual = fechaActual.getMonth();
+  let añoActual = fechaActual.getFullYear();
+  let fechaSeleccionada = null;
+
+  const calendarioGrid = document.getElementById("calendarioGrid");
+  const mesTitulo = document.getElementById("mesTitulo");
+  const editor = document.getElementById("editor");
+
+  function formatoFecha(año, mes, dia) {
+    const mesTexto = String(mes + 1).padStart(2, "0");
+    const diaTexto = String(dia).padStart(2, "0");
+    return `${año}-${mesTexto}-${diaTexto}`;
+  }
+
+  function obtenerDatosDia(fecha) {
+    const datos = localStorage.getItem(`rafaLife-${fecha}`);
+    return datos ? JSON.parse(datos) : {
+      titulo: "",
+      outfit: "",
+      foto: "",
+      gym: "",
+      tareas: "",
+      notas: ""
+    };
+  }
+
+  function guardarDatosDia(fecha, datos) {
+    localStorage.setItem(`rafaLife-${fecha}`, JSON.stringify(datos));
+  }
+
+  function renderizarCalendario() {
+    calendarioGrid.innerHTML = "";
+    mesTitulo.textContent = `${meses[mesActual]} ${añoActual}`;
+
+    const primerDia = new Date(añoActual, mesActual, 1);
+    const ultimoDia = new Date(añoActual, mesActual + 1, 0);
+    const cantidadDias = ultimoDia.getDate();
+
+    let inicioSemana = primerDia.getDay();
+    inicioSemana = inicioSemana === 0 ? 6 : inicioSemana - 1;
+
+    for (let i = 0; i < inicioSemana; i++) {
+      const vacio = document.createElement("div");
+      vacio.className = "dia vacio";
+      calendarioGrid.appendChild(vacio);
     }
-  </script>
+
+    for (let dia = 1; dia <= cantidadDias; dia++) {
+      const fecha = formatoFecha(añoActual, mesActual, dia);
+      const datos = obtenerDatosDia(fecha);
+
+      const div = document.createElement("div");
+      div.className = "dia";
+
+      const hoy = new Date();
+      const esHoy =
+        dia === hoy.getDate() &&
+        mesActual === hoy.getMonth() &&
+        añoActual === hoy.getFullYear();
+
+      const tieneDatos =
+        datos.titulo || datos.outfit || datos.foto || datos.gym || datos.tareas || datos.notas;
+
+      if (esHoy) div.classList.add("hoy");
+      if (tieneDatos) div.classList.add("guardado");
+
+      div.innerHTML = `
+        <div class="numero-dia">${dia}</div>
+        <div class="mini-texto">
+          ${datos.titulo ? "📌 " + datos.titulo.substring(0, 22) : ""}
+          <br>
+          ${datos.gym ? "💪 " + datos.gym : ""}
+          <br>
+          ${datos.outfit ? "👕 Outfit" : ""}
+        </div>
+      `;
+
+      div.onclick = () => seleccionarDia(fecha, dia);
+      calendarioGrid.appendChild(div);
+    }
+
+    actualizarEstadisticas();
+  }
+
+  function cambiarMes(cambio) {
+    mesActual += cambio;
+
+    if (mesActual < 0) {
+      mesActual = 11;
+      añoActual--;
+    }
+
+    if (mesActual > 11) {
+      mesActual = 0;
+      añoActual++;
+    }
+
+    editor.style.display = "none";
+    renderizarCalendario();
+  }
+
+  function seleccionarDia(fecha, dia) {
+    fechaSeleccionada = fecha;
+    const datos = obtenerDatosDia(fecha);
+
+    document.getElementById("fechaSeleccionadaTexto").textContent =
+      `${dia} de ${meses[mesActual]} de ${añoActual}`;
+
+    document.getElementById("tituloDia").value = datos.titulo;
+    document.getElementById("outfitDia").value = datos.outfit;
+    document.getElementById("gymDia").value = datos.gym;
+    document.getElementById("tareasDia").value = datos.tareas;
+    document.getElementById("notasDia").value = datos.notas;
+
+    const preview = document.getElementById("previewImagen");
+
+    if (datos.foto) {
+      preview.src = datos.foto;
+      preview.style.display = "block";
+    } else {
+      preview.src = "";
+      preview.style.display = "none";
+    }
+
+    editor.style.display = "block";
+    editor.scrollIntoView({ behavior: "smooth" });
+  }
+
+  function guardarDia() {
+    if (!fechaSeleccionada) return;
+
+    const datosActuales = obtenerDatosDia(fechaSeleccionada);
+
+    const datos = {
+      titulo: document.getElementById("tituloDia").value,
+      outfit: document.getElementById("outfitDia").value,
+      foto: datosActuales.foto || "",
+      gym: document.getElementById("gymDia").value,
+      tareas: document.getElementById("tareasDia").value,
+      notas: document.getElementById("notasDia").value
+    };
+
+    guardarDatosDia(fechaSeleccionada, datos);
+    renderizarCalendario();
+    actualizarEstadisticas();
+  }
+
+  function cargarImagen(event) {
+    if (!fechaSeleccionada) {
+      alert("Primero selecciona un día del calendario.");
+      return;
+    }
+
+    const archivo = event.target.files[0];
+    if (!archivo) return;
+
+    const lector = new FileReader();
+
+    lector.onload = function(e) {
+      const imagenBase64 = e.target.result;
+
+      const datos = obtenerDatosDia(fechaSeleccionada);
+      datos.foto = imagenBase64;
+
+      guardarDatosDia(fechaSeleccionada, datos);
+
+      const preview = document.getElementById("previewImagen");
+      preview.src = imagenBase64;
+      preview.style.display = "block";
+
+      renderizarCalendario();
+      actualizarEstadisticas();
+    };
+
+    lector.readAsDataURL(archivo);
+  }
+
+  function borrarDia() {
+    if (!fechaSeleccionada) return;
+
+    const confirmar = confirm("¿Seguro que quieres borrar este día?");
+    if (!confirmar) return;
+
+    localStorage.removeItem(`rafaLife-${fechaSeleccionada}`);
+    editor.style.display = "none";
+    fechaSeleccionada = null;
+    renderizarCalendario();
+    actualizarEstadisticas();
+  }
+
+  function actualizarEstadisticas() {
+    let diasGuardados = 0;
+    let diasGym = 0;
+    let outfits = 0;
+    let fotos = 0;
+
+    const ultimoDia = new Date(añoActual, mesActual + 1, 0).getDate();
+
+    for (let dia = 1; dia <= ultimoDia; dia++) {
+      const fecha = formatoFecha(añoActual, mesActual, dia);
+      const datos = obtenerDatosDia(fecha);
+
+      const tieneDatos =
+        datos.titulo || datos.outfit || datos.foto || datos.gym || datos.tareas || datos.notas;
+
+      if (tieneDatos) diasGuardados++;
+      if (datos.gym && datos.gym !== "Sin gym" && datos.gym !== "Descanso") diasGym++;
+      if (datos.outfit) outfits++;
+      if (datos.foto) fotos++;
+    }
+
+    document.getElementById("statDias").textContent = diasGuardados;
+    document.getElementById("statGym").textContent = diasGym;
+    document.getElementById("statOutfits").textContent = outfits;
+    document.getElementById("statFotos").textContent = fotos;
+  }
+
+  function guardarGenerales() {
+    localStorage.setItem("rafaLife-tareasGenerales", document.getElementById("tareasGenerales").value);
+    localStorage.setItem("rafaLife-notasGenerales", document.getElementById("notasGenerales").value);
+  }
+
+  function cargarGenerales() {
+    document.getElementById("tareasGenerales").value =
+      localStorage.getItem("rafaLife-tareasGenerales") || "";
+
+    document.getElementById("notasGenerales").value =
+      localStorage.getItem("rafaLife-notasGenerales") || "";
+  }
+
+  function borrarTodo() {
+    const confirmar = confirm("¿Seguro que quieres borrar TODO tu planner?");
+    if (!confirmar) return;
+
+    Object.keys(localStorage).forEach(key => {
+      if (key.startsWith("rafaLife")) {
+        localStorage.removeItem(key);
+      }
+    });
+
+    location.reload();
+  }
+
+  function activarGuardadoAutomatico() {
+    const camposDia = ["tituloDia", "outfitDia", "gymDia", "tareasDia", "notasDia"];
+
+    camposDia.forEach(id => {
+      document.getElementById(id).addEventListener("input", guardarDia);
+      document.getElementById(id).addEventListener("change", guardarDia);
+    });
+
+    document.getElementById("tareasGenerales").addEventListener("input", guardarGenerales);
+    document.getElementById("notasGenerales").addEventListener("input", guardarGenerales);
+  }
+
+  cargarGenerales();
+  renderizarCalendario();
+  activarGuardadoAutomatico();
+</script>
 
 </body>
 </html>
